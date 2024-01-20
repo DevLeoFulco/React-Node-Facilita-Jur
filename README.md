@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Projeto de Cadastro de Clientes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação web para cadastrar e gerenciar clientes. Ele foi desenvolvido usando React para o frontend e Node.js com Express para o backend, além de um banco de dados PostgreSQL para armazenar os dados dos clientes.
 
-## Available Scripts
+## Versões das Ferramentas Utilizadas
 
-In the project directory, you can run:
+- Node.js: v20.10
+- npm: v9.8.1
+- React: v17+
 
-### `npm start`
+## Rodando o Projeto Localmente
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Siga as instruções abaixo para rodar a solução localmente:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
 
-### `npm test`
+1. Certifique-se de ter o Node.js e o npm instalados na sua máquina.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Abra o terminal na pasta do projeto.
 
-### `npm run build`
+3. Navegue até a pasta `backend`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    cd backend
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Instale as dependências do backend:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+5. Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, como a conexão com o banco de dados.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. Execute o backend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   O servidor backend será iniciado na porta 3001 por padrão.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Banco de Dados
 
-## Learn More
+1. Crie um banco de dados PostgreSQL com o nome desejado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Utilize o DDL abaixo para criar a tabela `clientes` no banco de dados:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```sql
+    CREATE TABLE clientes (
+      id SERIAL PRIMARY KEY,
+      nome VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      telefone VARCHAR(20) NOT NULL,
+      coordenadaX FLOAT NOT NULL,
+      coordenadaY FLOAT NOT NULL
+    );
+    ```
 
-### Code Splitting
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Abra outro terminal na pasta do projeto (ou navegue de volta para a raiz do projeto).
 
-### Analyzing the Bundle Size
+2. Navegue até a pasta `frontend`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    cd frontend
+    ```
 
-### Making a Progressive Web App
+3. Instale as dependências do frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    ```bash
+    npm install
+    ```
 
-### Advanced Configuration
+4. Execute o frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    ```bash
+    npm start
+    ```
 
-### Deployment
+   O aplicativo React será iniciado e estará acessível em [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Agora, você pode acessar o aplicativo no seu navegador e começar a cadastrar e gerenciar clientes localmente!
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Lembre-se de que essas instruções assumem que você tem um ambiente de desenvolvimento configurado e um servidor PostgreSQL em execução. Certifique-se de ajustar as configurações de acordo com o seu ambiente específico.
